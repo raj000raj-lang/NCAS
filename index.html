@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Compliance Accounting Services | Expert Australian SME Support</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0B2545;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --light: #F8F9FA;
+            --dark-footer: #05162b;
+            --text: #333333;
+            --gray: #666666;
+            --transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        .btn { display: inline-block; padding: 14px 32px; border-radius: 4px; font-weight: 700; text-decoration: none; transition: var(--transition); cursor: pointer; border: none; }
+        .btn-gold { background: var(--gold); color: var(--navy); }
+        .btn-gold:hover { background: #b8962d; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
+
+        /* PRELOADER STYLE */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease, visibility 0.6s;
+        }
+        .loader-content { text-align: center; }
+        .loader-logo { font-size: 2.5rem; font-weight: 800; color: var(--navy); animation: pulse 1.5s infinite ease-in-out; }
+        .loader-logo span { color: var(--gold); }
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.7; }
+        }
+        body.loaded #preloader { opacity: 0; visibility: hidden; }
+
+        /* NAVIGATION */
+        header { background: var(--white); padding: 18px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.6rem; font-weight: 800; color: var(--navy); text-decoration: none; letter-spacing: -1px; }
+        .logo span { color: var(--gold); }
+        .nav-right { display: flex; align-items: center; }
+        .nav-links { display: flex; gap: 25px; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--navy); font-weight: 600; font-size: 0.95rem; transition: var(--transition); }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* HAMBURGER MENU ICON */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--navy);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+        /* HERO SECTION */
+        .hero { 
+            padding: 120px 0; 
+            background-color: #ffffff;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10h1v1h-1zM50 40h1v1h-1zM90 10h1v1h-1zM10 90h1v1h-1zM90 90h1v1h-1z' fill='%23d4af37' fill-opacity='0.2'/%3E%3Cpath d='M0 50h100M50 0v100' stroke='%230b2545' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Ccircle cx='50' cy='50' r='2' fill='%230b2545' fill-opacity='0.1'/%3E%3C/svg%3E");
+            background-attachment: fixed;
+        }
+        .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: center; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 3.8rem); color: var(--navy); line-height: 1.1; margin-bottom: 25px; letter-spacing: -1px; }
+        .hero p { font-size: 1.25rem; color: var(--gray); max-width: 700px; margin-bottom: 40px; }
+        
+        .hero-visual-wrapper { position: relative; padding-right: 20px; padding-bottom: 20px; }
+        .hero-visual { 
+            height: 500px; 
+            position: relative; 
+            overflow: hidden; 
+            border-radius: 12px; 
+            box-shadow: 20px 20px 0px var(--gold); 
+            border: 1px solid rgba(0,0,0,0.05); 
+        }
+        .image-stack { display: flex; flex-direction: column; animation: verticalScroll 15s infinite ease-in-out; }
+        .image-stack img { width: 100%; height: 500px; object-fit: cover; }
+        
+        @keyframes verticalScroll {
+            0%, 28% { transform: translateY(0); }
+            33%, 61% { transform: translateY(-500px); }
+            66%, 94% { transform: translateY(-1000px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* TICKER */
+        .trust-ticker-container { background: var(--navy); color: var(--white); padding: 50px 0; }
+        .ticker-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; }
+        .stat-item { display: flex; align-items: center; gap: 15px; }
+        .stat-number { font-size: 3rem; font-weight: 800; color: var(--gold); min-width: 110px; }
+        .stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; font-weight: 700; line-height: 1.3; }
+
+        /* ABOUT US SECTION */
+        .about-section { padding: 100px 0; background: var(--light); }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .about-image { position: relative; border-radius: 12px; overflow: hidden; height: 450px; box-shadow: 20px 20px 0px var(--gold); margin-right: 20px; }
+        .about-image img { width: 100%; height: 100%; object-fit: cover; }
+        .about-content h2 { font-size: 2.5rem; color: var(--navy); margin-bottom: 25px; }
+        .about-content p { margin-bottom: 20px; color: var(--gray); font-size: 1.1rem; }
+        .about-content .highlight-text { color: var(--navy); font-weight: 700; border-left: 4px solid var(--gold); padding-left: 20px; margin: 30px 0; }
+
+        /* SERVICES */
+        .services { padding: 100px 0; background: var(--white); }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.5rem; color: var(--navy); margin-bottom: 15px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-card { padding: 45px; background: var(--light); border-radius: 8px; transition: var(--transition); border-top: 4px solid var(--gold); position: relative; }
+        .service-card:hover { transform: translateY(-10px); background: var(--white); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .service-icon { width: 50px; height: 50px; margin-bottom: 25px; color: var(--gold); }
+        .service-card h3 { color: var(--navy); margin-bottom: 15px; font-size: 1.4rem; }
+
+        /* TEAM SECTION */
+        .team { padding: 100px 0; background: var(--light); }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .team-card { background: var(--white); border-radius: 8px; overflow: hidden; text-align: center; padding: 40px 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .team-img-wrapper { width: 120px; height: 120px; margin: 0 auto 20px; position: relative; }
+        .team-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); background: #eee; }
+        .team-card h4 { color: var(--navy); font-size: 1.2rem; margin-bottom: 5px; }
+        .team-card .role { color: var(--gold); font-weight: 700; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        .team-card .bio { font-size: 0.9rem; color: var(--gray); margin-bottom: 20px; min-height: 60px; }
+        .team-card .email { font-size: 0.85rem; font-weight: 600; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--gold); }
+
+        /* CONTACT ZONE */
+        .contact-zone { padding: 100px 0; background: var(--white); }
+        .contact-flex { display: flex; flex-wrap: wrap; gap: 60px; align-items: flex-start; }
+        .contact-info-panel { flex: 1; min-width: 350px; }
+        .contact-info-panel h2 { font-size: 2.5rem; color: var(--navy); margin-bottom: 40px; }
+        .detail-group { margin-bottom: 30px; }
+        .detail-group label { display: block; color: var(--gold); font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 5px; }
+        .detail-group p { font-size: 1.1rem; font-weight: 600; color: var(--navy); }
+        
+        /* UPDATED MAP STYLES */
+        .map-wrapper { flex: 1.2; min-width: 350px; height: 450px; border-radius: 12px; overflow: hidden; border: 1px solid #ddd; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .map-wrapper iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+        /* FOOTER */
+        footer { background: var(--dark-footer); color: var(--white); padding: 80px 0 40px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 60px; }
+        .footer-col h4 { color: var(--gold); margin-bottom: 25px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #aaa; text-decoration: none; transition: var(--transition); font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--gold); padding-left: 5px; }
+        
+        .social-flex { display: flex; gap: 15px; margin-top: 15px; }
+        .social-icon { width: 35px; height: 35px; background: rgba(255,255,255,0.05); border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: var(--transition); color: var(--white); }
+        .social-icon:hover { background: var(--gold); color: var(--navy); transform: translateY(-3px); }
+        .social-icon svg { width: 18px; height: 18px; fill: currentColor; }
+
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; text-align: center; color: #777; font-size: 0.85rem; }
+
+        @media (max-width: 1024px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-text { order: 1; }
+            .hero-visual-wrapper { order: 2; margin: 0 auto; max-width: 600px; padding-right: 15px; padding-bottom: 15px; }
+            .hero-visual { height: 400px; box-shadow: 15px 15px 0px var(--gold); }
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .about-image { order: 2; height: 300px; box-shadow: 10px 10px 0px var(--gold); margin-right: 10px; }
+            .menu-toggle { display: flex; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                justify-content: center;
+                padding: 50px;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+                transition: var(--transition);
+                z-index: 1000;
+            }
+            .nav-links.active { right: 0; }
+            .nav-links li { width: 100%; text-align: left; }
+            .nav-links a { font-size: 1.2rem; display: block; padding: 10px 0; }
+            .btn-consultation { margin-top: 20px; text-align: center; }
+        }
+
+        @media (max-width: 600px) {
+            .ticker-flex { justify-content: center; }
+            .stat-item { width: 45%; flex-direction: column; text-align: center; }
+            .stat-number { font-size: 2.2rem; min-width: auto; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">NCAS<span>.</span></div>
+            <p style="color: var(--gray); font-size: 0.8rem; margin-top: 10px; letter-spacing: 2px; text-transform: uppercase;">Loading Excellence</p>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">NCAS<span>.</span></a>
+                <div class="nav-right">
+                    <div class="menu-toggle" id="mobile-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="nav-links" id="nav-menu">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li class="btn-consultation"><a href="#contact" class="btn btn-gold">Book Consultation</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Expert Financial Clarity <br> for Australian Growth.</h1>
+                <p>We streamline complex compliance, accounting, and payroll so you can focus on building your legacy. Expert support for Australian SMEs and Startups.</p>
+                <a href="#contact" class="btn btn-gold">Start Your Free Consultation</a>
+            </div>
+            <div class="hero-visual-wrapper">
+                <div class="hero-visual">
+                    <div class="image-stack">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800" alt="Consultation">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800" alt="Office Culture">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" alt="Financial Data">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-ticker-container">
+        <div class="container ticker-flex">
+            <div class="stat-item">
+                <div class="stat-number" data-target="15">15</div>
+                <div class="stat-label">Years of<br>Expertise</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="500">500</div>
+                <div class="stat-label">Clients<br>Supported</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="100">100</div>
+                <div class="stat-label">Compliance<br>Accuracy %</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="24">24</div>
+                <div class="stat-label">Hour Support<br>Turnaround</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container about-grid">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" alt="Our Office Environment">
+            </div>
+            <div class="about-content">
+                <h2>Precision Meets Partnership.</h2>
+                <p>Founded on the principle that compliance shouldn't be a hurdle to growth, Nova Compliance Accounting Services (NCAS) has become a trusted pillar for the Australian SME community.</p>
+                <p>We don't just "do the books." We provide the strategic financial infrastructure that allows visionary founders to scale with confidence, knowing their regulatory foundations are unbreakable.</p>
+                <div class="highlight-text">
+                    "Our mission is to replace financial uncertainty with absolute clarity, transforming accounting from a cost center into a competitive advantage."
+                </div>
+                <a href="#team" class="btn btn-gold">Meet the Leadership</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Specialist Services</h2>
+                <p>Proactive financial management tailored for the modern Australian business.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3>Compliance</h3>
+                    <p>ASIC registrations, annual reviews, and corporate secretarial support. We ensure you stay perfectly aligned with Australian regulatory frameworks.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <h3>Accounting</h3>
+                    <p>Cloud-based bookkeeping and real-time financial reporting. Gain total clarity over your cash flow and business performance instantly.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>Payroll</h3>
+                    <p>End-to-end STP Phase 2 payroll management, Superannuation clearing, and Fair Work award compliance for growing teams.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Leadership Team</h2>
+                <p>Expert advisors committed to your business success.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="https://ui-avatars.com/api/?name=Lachlan+Vance&background=0B2545&color=D4AF37&size=256" alt="Lachlan Vance" class="team-img">
+                    </div>
+                    <h4>Lachlan Vance, CPA</h4>
+                    <p class="role">Managing Director</p>
+                    <p class="bio">18+ years in Australian tax law. Specialized in high-growth startup structures and corporate strategy.</p>
+                    <a href="mailto:l.vance@ncas.com.au" class="email">l.vance@ncas.com.au</a>
+                </div>
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+Chen&background=0B2545&color=D4AF37&size=256" alt="Sarah Chen" class="team-img">
+                    </div>
+                    <h4>Sarah Chen</h4>
+                    <p class="role">Compliance Lead</p>
+                    <p class="bio">ASIC and corporate governance expert. Ensuring zero-error regulatory lodgements for our national portfolio.</p>
+                    <a href="mailto:s.chen@ncas.com.au" class="email">s.chen@ncas.com.au</a>
+                </div>
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="https://ui-avatars.com/api/?name=Marcus+Thompson&background=0B2545&color=D4AF37&size=256" alt="Marcus Thompson" class="team-img">
+                    </div>
+                    <h4>Marcus Thompson</h4>
+                    <p class="role">Head of Payroll</p>
+                    <p class="bio">Specialist in STP Phase 2 transitions and Fair Work award interpretation and risk mitigation.</p>
+                    <a href="mailto:m.thompson@ncas.com.au" class="email">m.thompson@ncas.com.au</a>
+                </div>
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="https://ui-avatars.com/api/?name=Elena+Rodriguez&background=0B2545&color=D4AF37&size=256" alt="Elena Rodriguez" class="team-img">
+                    </div>
+                    <h4>Elena Rodriguez</h4>
+                    <p class="role">Senior Tax Advisor</p>
+                    <p class="bio">Focusing on R&D Tax Incentives and international tax obligations for Australian companies expanding offshore.</p>
+                    <a href="mailto:e.rodriguez@ncas.com.au" class="email">e.rodriguez@ncas.com.au</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-zone">
+        <div class="container">
+            <div class="contact-flex">
+                <div class="contact-info-panel">
+                    <h2>Get in Touch</h2>
+                    <div class="detail-group">
+                        <label>Office Headquarters</label>
+                        <p>Level 22, 100 Mount Street, <br>North Sydney NSW 2060</p>
+                    </div>
+                    <div class="detail-group">
+                        <label>Direct Support</label>
+                        <p>1300 6227 28</p>
+                        <p>inquiries@ncas.com.au</p>
+                    </div>
+                    <div class="detail-group">
+                        <label>Business Identity</label>
+                        <p>Nova Compliance Accounting Services <br>ABN: 12 345 678 910</p>
+                    </div>
+                    <a href="mailto:inquiries@ncas.com.au" class="btn btn-gold">Send an Inquiry</a>
+                </div>
+                
+                <div class="map-wrapper">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.7915354964177!2d151.2065842765373!3d-33.843516517726524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae657df66917%3A0x643666f7f2b93f2f!2s100%20Mount%20St%2C%20North%20Sydney%20NSW%202060!5e0!3m2!1sen!2sau!4v1700000000000!5m2!1sen!2sau" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="color: white">NCAS<span>.</span></a>
+                    <p style="margin-top: 20px; color: #aaa; font-size: 0.85rem;">
+                        Providing premium financial management and compliance solutions for the modern Australian business landscape.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#team">Leadership Team</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Corporate Compliance</a></li>
+                        <li><a href="#services">Cloud Accounting</a></li>
+                        <li><a href="#services">Payroll & STP 2</a></li>
+                        <li><a href="#services">Tax Strategy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <div class="social-flex">
+                        <a href="#" class="social-icon" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="X">
+                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Nova Compliance Accounting Services (NCAS). Registered Tax Agent 1234567.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. PRELOADER
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 800);
+        });
+
+        // 2. MOBILE MENU TOGGLE
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // 3. STAT COUNTERS
+        const counters = document.querySelectorAll('.stat-number');
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    let count = 1;
+                    const updateCount = () => {
+                        const increment = target / 50;
+                        if (count < target) {
+                            count += increment;
+                            counter.innerText = Math.ceil(count);
+                            setTimeout(updateCount, 20);
+                        } else {
+                            counter.innerText = target + (target === 100 ? '%' : '+');
+                        }
+                    };
+                    updateCount();
+                    obs.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(c => observer.observe(c));
+    </script>
+</body>
+</html>
