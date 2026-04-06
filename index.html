@@ -134,11 +134,28 @@
         .services { padding: 100px 0; background: var(--white); }
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header h2 { font-size: 2.5rem; color: var(--navy); margin-bottom: 15px; }
+        .section-header p { color: var(--gray); }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .service-card { padding: 45px; background: var(--light); border-radius: 8px; transition: var(--transition); border-top: 4px solid var(--gold); position: relative; }
         .service-card:hover { transform: translateY(-10px); background: var(--white); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
         .service-icon { width: 50px; height: 50px; margin-bottom: 25px; color: var(--gold); }
         .service-card h3 { color: var(--navy); margin-bottom: 15px; font-size: 1.4rem; }
+
+        /* INDUSTRIES SECTION */
+        .industries { padding: 100px 0; background: var(--navy); color: var(--white); }
+        .industries .section-header h2 { color: var(--white); }
+        .industries .section-header p { color: #a9b5c2; }
+        .industry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 30px; text-align: center; }
+        .industry-card { background: rgba(255,255,255,0.03); padding: 40px 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); }
+        .industry-card:hover { background: rgba(255,255,255,0.08); border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .industry-icon { height: 60px; margin-bottom: 20px; color: var(--gold); display: flex; justify-content: center; align-items: center; }
+        .industry-icon svg { width: 45px; height: 45px; stroke-width: 1.5; stroke: currentColor; fill: none; stroke-linecap: round; stroke-linejoin: round; animation: floatIcon 3s ease-in-out infinite; }
+        
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .industry-card h3 { font-size: 1.1rem; font-weight: 600; color: var(--white); }
 
         /* TEAM SECTION */
         .team { padding: 100px 0; background: var(--light); }
@@ -160,7 +177,6 @@
         .detail-group label { display: block; color: var(--gold); font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 5px; }
         .detail-group p { font-size: 1.1rem; font-weight: 600; color: var(--navy); }
         
-        /* UPDATED MAP STYLES */
         .map-wrapper { flex: 1.2; min-width: 350px; height: 450px; border-radius: 12px; overflow: hidden; border: 1px solid #ddd; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .map-wrapper iframe { width: 100%; height: 100%; border: 0; display: block; }
 
@@ -311,26 +327,165 @@
                 <p>Proactive financial management tailored for the modern Australian business.</p>
             </div>
             <div class="services-grid">
+                
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                        </svg>
                     </div>
-                    <h3>Compliance</h3>
-                    <p>ASIC registrations, annual reviews, and corporate secretarial support. We ensure you stay perfectly aligned with Australian regulatory frameworks.</p>
+                    <h3>Company Secretarial Services</h3>
+                    <p>Comprehensive administrative support and statutory compliance to ensure strict adherence to corporate governance requirements.</p>
                 </div>
+
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Tax Consultancy & Compliance</h3>
+                    <p>Strategic tax planning and strict adherence to Australian Taxation Office regulations, minimizing liabilities and maximizing returns.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>Book keeping</h3>
+                    <p>Accurate, timely, and organized financial record-keeping to maintain your business's health and provide real-time financial clarity.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                    </div>
+                    <h3>Business Advisory</h3>
+                    <p>Expert guidance and strategic forecasting to help you navigate growth, improve profitability, and achieve your long-term business goals.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                            <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                        </svg>
+                    </div>
+                    <h3>Management Accounting</h3>
+                    <p>Detailed financial analysis, budgeting, and performance metrics to help management teams make effective and informed decisions.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Mortgage Broking</h3>
+                    <p>Tailored lending solutions and expert negotiation to help you secure the right financing for commercial or residential property needs.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <polyline points="9 12 11 14 15 10"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Self managed super fund</h3>
+                    <p>Complete establishment, ongoing administration, and audit coordination for your SMSF, giving you full control over your retirement.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                            <line x1="8" y1="6" x2="16" y2="6"></line>
+                            <line x1="16" y1="14" x2="16" y2="14.01"></line>
+                            <line x1="12" y1="14" x2="12" y2="14.01"></line>
+                            <line x1="8" y1="14" x2="8" y2="14.01"></line>
+                            <line x1="16" y1="10" x2="16" y2="10.01"></line>
+                            <line x1="12" y1="10" x2="12" y2="10.01"></line>
+                            <line x1="8" y1="10" x2="8" y2="10.01"></line>
+                            <line x1="16" y1="18" x2="16" y2="18.01"></line>
+                            <line x1="12" y1="18" x2="12" y2="18.01"></line>
+                            <line x1="8" y1="18" x2="8" y2="18.01"></line>
+                        </svg>
                     </div>
                     <h3>Accounting</h3>
-                    <p>Cloud-based bookkeeping and real-time financial reporting. Gain total clarity over your cash flow and business performance instantly.</p>
+                    <p>End-to-end accounting services from financial statement preparation to holistic year-end reporting for businesses of all sizes.</p>
                 </div>
+
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
                     </div>
-                    <h3>Payroll</h3>
-                    <p>End-to-end STP Phase 2 payroll management, Superannuation clearing, and Fair Work award compliance for growing teams.</p>
+                    <h3>Other Specialist services</h3>
+                    <p>Individuals and non-profit organisations can sometimes be overlooked in a world dominated by corporations. At NCAS, we place our clients first, designing specialist services to meet your unique objectives.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="industries" class="industries">
+        <div class="container">
+            <div class="section-header">
+                <h2>Industries We Serve</h2>
+                <p>Tailored financial strategies for specialized sectors across Australia.</p>
+            </div>
+            <div class="industry-grid">
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                    </div>
+                    <h3>Transportation</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg>
+                    </div>
+                    <h3>Hospitality / Food</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 8v3.5c0 2.2 1.8 4 4 4 .8 0 1.5-.3 2-.8V12a1 1 0 0 1 2 0v2.7c.5.5 1.2.8 2 .8 2.2 0 4-1.8 4-4V8c0-3-3-6-7-6z"></path><path d="M9 15.5V19c0 1.7 1.3 3 3 3s3-1.3 3-3v-3.5"></path></svg>
+                    </div>
+                    <h3>Dental</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 22V4c0-1.1.9-2 2-2h6c1.1 0 2 .9 2 2v18"></path><path d="M13 13.5v-3c0-1.4 1.1-2.5 2.5-2.5h1c1.4 0 2.5 1.1 2.5 2.5v5c0 1.4-1.1 2.5-2.5 2.5h-1c-1.4 0-2.5-1.1-2.5-2.5"></path><rect x="5" y="4" width="6" height="4"></rect></svg>
+                    </div>
+                    <h3>Fuel Retailing</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg>
+                    </div>
+                    <h3>Construction</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="20" width="20" height="2"></rect><rect x="4" y="10" width="2" height="10"></rect><rect x="10" y="10" width="2" height="10"></rect><rect x="18" y="10" width="2" height="10"></rect><polygon points="12 2 2 8 22 8 12 2"></polygon></svg>
+                    </div>
+                    <h3>Banking / Finance</h3>
                 </div>
             </div>
         </div>
@@ -438,10 +593,13 @@
                 <div class="footer-col">
                     <h4>Services</h4>
                     <ul class="footer-links">
-                        <li><a href="#services">Corporate Compliance</a></li>
-                        <li><a href="#services">Cloud Accounting</a></li>
-                        <li><a href="#services">Payroll & STP 2</a></li>
-                        <li><a href="#services">Tax Strategy</a></li>
+                        <li><a href="#services">Company Secretarial Services</a></li>
+                        <li><a href="#services">Tax Consultancy & Compliance</a></li>
+                        <li><a href="#services">Book keeping</a></li>
+                        <li><a href="#services">Business Advisory</a></li>
+<li><a href="#services">Management Accounting</a></li>
+<li><a href="#services">Mortgage Broking</a></li>
+
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -457,62 +615,21 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2026 Nova Compliance Accounting Services (NCAS). Registered Tax Agent 1234567.
+                © 2026 Nova Compliance Accounting Services (NCAS). Registered Tax Agent 1234567.
             </div>
         </div>
     </footer>
 
     <script>
-        // 1. PRELOADER
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.body.classList.add('loaded');
-            }, 800);
+        // Removes preloader on load and enables mobile menu toggling
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
         });
 
-        // 2. MOBILE MENU TOGGLE
-        const mobileToggle = document.getElementById('mobile-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        const navLinks = document.querySelectorAll('.nav-links a');
-
-        mobileToggle.addEventListener('click', () => {
-            mobileToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+        document.getElementById('mobile-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.getElementById('nav-menu').classList.toggle('active');
         });
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-        });
-
-        // 3. STAT COUNTERS
-        const counters = document.querySelectorAll('.stat-number');
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counter = entry.target;
-                    const target = +counter.getAttribute('data-target');
-                    let count = 1;
-                    const updateCount = () => {
-                        const increment = target / 50;
-                        if (count < target) {
-                            count += increment;
-                            counter.innerText = Math.ceil(count);
-                            setTimeout(updateCount, 20);
-                        } else {
-                            counter.innerText = target + (target === 100 ? '%' : '+');
-                        }
-                    };
-                    updateCount();
-                    obs.unobserve(counter);
-                }
-            });
-        }, { threshold: 0.5 });
-        counters.forEach(c => observer.observe(c));
     </script>
 </body>
 </html>
