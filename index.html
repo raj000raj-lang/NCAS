@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Compliance Accounting Services | Expert Australian SME Support</title>
+    <title>Nova Compliance & Accounting Services | Expert Australian SME Support</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -135,11 +135,20 @@
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header h2 { font-size: 2.5rem; color: var(--navy); margin-bottom: 15px; }
         .section-header p { color: var(--gray); }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+	.services-grid {  display: grid;  grid-template-columns: repeat(2, 1fr); gap: 30px; }
+	
+	
         .service-card { padding: 45px; background: var(--light); border-radius: 8px; transition: var(--transition); border-top: 4px solid var(--gold); position: relative; }
         .service-card:hover { transform: translateY(-10px); background: var(--white); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
         .service-icon { width: 50px; height: 50px; margin-bottom: 25px; color: var(--gold); }
         .service-card h3 { color: var(--navy); margin-bottom: 15px; font-size: 1.4rem; }
+		
+	.service-card{ padding:40px; background:#f8f9fa; border-radius:8px; border-top:4px solid var(--gold); }
+	.service-card h3{color:var(--navy)}
+	@media(max-width:768px){ .services-grid{ grid-template-columns:1fr; } }
+
+
+
 
         /* INDUSTRIES SECTION */
         .industries { padding: 100px 0; background: var(--navy); color: var(--white); }
@@ -310,7 +319,7 @@
             </div>
             <div class="about-content">
                 <h2>Precision Meets Partnership.</h2>
-                <p>Founded on the principle that compliance shouldn't be a hurdle to growth, Nova Compliance Accounting Services (NCAS) has become a trusted pillar for the Australian SME community.</p>
+                <p>Founded on the principle that compliance shouldn't be a hurdle to growth, <strong> Nova Compliance & Accounting Services (NCAS)</strong> has become a trusted pillar for the Australian SME community.</p>
                 <p>We don't just "do the books." We provide the strategic financial infrastructure that allows visionary founders to scale with confidence, knowing their regulatory foundations are unbreakable.</p>
                 <div class="highlight-text">
                     "Our mission is to replace financial uncertainty with absolute clarity, transforming accounting from a cost center into a competitive advantage."
@@ -334,24 +343,11 @@
                             <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
                         </svg>
                     </div>
-                    <h3>Company Secretarial Services</h3>
-                    <p>Comprehensive administrative support and statutory compliance to ensure strict adherence to corporate governance requirements.</p>
+                    <h3>Company, SMSF, and Trust Setups</h3>
+                    <p>ASIC company registration and assistance with ABN, TFN, and GST registration. SMSF registration with the ATO and support with trustee declarations. Family Trusts, Unit Trusts, and Fixed Unit Trusts setup with ATO registration.Assistance with maintaining trustee, shareholder, and beneficiary records.</p>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                            <polyline points="10 9 9 9 8 9"></polyline>
-                        </svg>
-                    </div>
-                    <h3>Tax Consultancy & Compliance</h3>
-                    <p>Strategic tax planning and strict adherence to Australian Taxation Office regulations, minimizing liabilities and maximizing returns.</p>
-                </div>
-
+                
                 <div class="service-card">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -359,22 +355,11 @@
                             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                         </svg>
                     </div>
-                    <h3>Book keeping</h3>
-                    <p>Accurate, timely, and organized financial record-keeping to maintain your business's health and provide real-time financial clarity.</p>
+                    <h3>ASIC Compliance Support</h3>
+                    <p>Lodging statutory forms such as Form 484 (Change to Company Details), 6010 (Annual Review), 205A (Change of Company Name), 581 (Notification of Address/Office Changes), and others. Preparing and maintaining minutes, resolutions, and company registers for any changes. Sending timely reminders to clients for payment of annual review fees to avoid penalties.</p>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="18" y1="20" x2="18" y2="10"></line>
-                            <line x1="12" y1="20" x2="12" y2="4"></line>
-                            <line x1="6" y1="20" x2="6" y2="14"></line>
-                        </svg>
-                    </div>
-                    <h3>Business Advisory</h3>
-                    <p>Expert guidance and strategic forecasting to help you navigate growth, improve profitability, and achieve your long-term business goals.</p>
-                </div>
-
+		
+               
                 <div class="service-card">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -382,32 +367,13 @@
                             <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
                         </svg>
                     </div>
-                    <h3>Management Accounting</h3>
-                    <p>Detailed financial analysis, budgeting, and performance metrics to help management teams make effective and informed decisions.</p>
+                    <h3>Bookkeeping and Accounting Support</h3>
+                    <p>Day-to-day bookkeeping including bank reconciliation, accounts payable and receivable, and payroll processing. Preparation of management reports and workpapers for year-end accounting. Assistance with BAS preparation and GST reporting. Support for maintaining clean, up-to-date financial records.</p>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                        </svg>
-                    </div>
-                    <h3>Mortgage Broking</h3>
-                    <p>Tailored lending solutions and expert negotiation to help you secure the right financing for commercial or residential property needs.</p>
-                </div>
+              
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                            <polyline points="9 12 11 14 15 10"></polyline>
-                        </svg>
-                    </div>
-                    <h3>Self managed super fund</h3>
-                    <p>Complete establishment, ongoing administration, and audit coordination for your SMSF, giving you full control over your retirement.</p>
-                </div>
-
+        
                 <div class="service-card">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -424,23 +390,11 @@
                             <line x1="8" y1="18" x2="8" y2="18.01"></line>
                         </svg>
                     </div>
-                    <h3>Accounting</h3>
-                    <p>End-to-end accounting services from financial statement preparation to holistic year-end reporting for businesses of all sizes.</p>
+                    <h3>Payroll Management Services</h3>
+                    <p>End-to-end payroll processing tailored to Australian compliance standards, including Single Touch Payroll (STP), superannuation contributions, and award interpretation. We ensure accurate salary calculations, timely payslip generation, and compliance with Fair Work regulations. Our service minimizes payroll risks, maintains employee satisfaction, and keeps your business fully compliant with ATO requirements.</p>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                    </div>
-                    <h3>Other Specialist services</h3>
-                    <p>Individuals and non-profit organisations can sometimes be overlooked in a world dominated by corporations. At NCAS, we place our clients first, designing specialist services to meet your unique objectives.</p>
-                </div>
-
+            
             </div>
         </div>
     </section>
@@ -554,7 +508,7 @@
                     </div>
                     <div class="detail-group">
                         <label>Business Identity</label>
-                        <p>Nova Compliance Accounting Services <br>ABN: 12 345 678 910</p>
+                        <p>Nova Compliance & Accounting Services <br>ABN: 12 345 678 910</p>
                     </div>
                     <a href="mailto:inquiries@ncas.com.au" class="btn btn-gold">Send an Inquiry</a>
                 </div>
@@ -615,7 +569,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                © 2026 Nova Compliance Accounting Services (NCAS). Registered Tax Agent 1234567.
+                © 2026 Nova Compliance & Accounting Services (NCAS). Registered Tax Agent 1234567.
             </div>
         </div>
     </footer>
