@@ -150,6 +150,16 @@
 
 
 
+	/* WHY PARTNER SECTION */
+	.why-partner { padding: 100px 0; background: var(--light); }
+	.why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+	.why-card { background: var(--white); padding: 30px; border-left: 4px solid var(--gold); border-radius: 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+	.why-card p { color: var(--gray); font-size: 1rem; }
+	@media (max-width: 768px){
+   	 .why-grid { grid-template-columns: 1fr; } }
+
+
+
         /* INDUSTRIES SECTION */
         .industries { padding: 100px 0; background: var(--navy); color: var(--white); }
         .industries .section-header h2 { color: var(--white); }
@@ -239,6 +249,8 @@
             .stat-number { font-size: 2.2rem; min-width: auto; }
             .hero h1 { font-size: 2.2rem; }
         }
+
+	
     </style>
 </head>
 <body>
@@ -398,6 +410,29 @@
             </div>
         </div>
     </section>
+
+
+
+<section class="why-partner">
+    <div class="container">
+        <div class="section-header">
+            <h2>Why Partner with Us?</h2>
+            <h4>Built for accounting firms who want efficiency, compliance, and growth.</h4>
+                  <p>We handle administrative, compliance, and accounting tasks efficiently, reducing the risk of errors and penalties.
+                 Your firm can focus on client advisory and business growth, while we manage the operational details seamlessly.
+                   Reliable, accurate, and timely support tailored specifically for accounting firms and professional practices.
+                 We would be happy to discuss how our services can complement your firm’s operations and make entity setups, compliance, and accounting seamless for your clients.
+            </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
     <section id="industries" class="industries">
         <div class="container">
             <div class="section-header">
