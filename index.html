@@ -632,15 +632,21 @@
     </footer>
 
     <script>
-        // Removes preloader on load and enables mobile menu toggling
-        window.addEventListener('load', function() {
+       // PRELOADER WITH 1 SECOND DELAY
+    window.addEventListener('load', function() {
+        setTimeout(function() {
             document.body.classList.add('loaded');
-        });
+        }, 1000); // 1000ms = 1 second
+    });
 
-        document.getElementById('mobile-toggle').addEventListener('click', function() {
-            this.classList.toggle('active');
-            document.getElementById('nav-menu').classList.toggle('active');
-        });
+    // Mobile menu
+    document.getElementById('mobile-toggle').addEventListener('click', function() {
+        this.classList.toggle('active');
+        document.getElementById('nav-menu').classList.toggle('active');
+    });
+		
+		
+
 		
 		
 		
