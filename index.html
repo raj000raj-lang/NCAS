@@ -641,6 +641,53 @@
             this.classList.toggle('active');
             document.getElementById('nav-menu').classList.toggle('active');
         });
+		
+		
+		
+		
+
+    
+
+    // ✅ COUNTER ANIMATION (START FROM 1)
+    const counters = document.querySelectorAll('.stat-number');
+
+    const startCounter = (counter) => {
+        const target = +counter.getAttribute('data-target');
+        let count = 1;
+
+        const speed = 30; // lower = faster
+
+        const updateCount = () => {
+            const increment = Math.ceil(target / 100);
+
+            if (count < target) {
+                count += increment;
+                if (count > target) count = target;
+                counter.innerText = count;
+                setTimeout(updateCount, speed);
+            } else {
+                counter.innerText = target;
+            }
+        };
+
+        counter.innerText = 1; // start from 1
+        updateCount();
+    };
+
+    // Trigger on scroll (smooth UX)
+    let triggered = false;
+
+    window.addEventListener('scroll', () => {
+        const section = document.querySelector('.trust-ticker-container');
+        const sectionTop = section.offsetTop - window.innerHeight + 100;
+
+        if (!triggered && window.scrollY > sectionTop) {
+            counters.forEach(counter => startCounter(counter));
+            triggered = true;
+        }
+    });
+</script>
+		
     </script>
 </body>
 </html>
