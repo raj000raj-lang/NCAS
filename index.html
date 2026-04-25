@@ -135,30 +135,23 @@
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header h2 { font-size: 2.5rem; color: var(--navy); margin-bottom: 15px; }
         .section-header p { color: var(--gray); }
-	.services-grid {  display: grid;  grid-template-columns: repeat(2, 1fr); gap: 30px; }
-	
-	
+        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+
         .service-card { padding: 45px; background: var(--light); border-radius: 8px; transition: var(--transition); border-top: 4px solid var(--gold); position: relative; }
         .service-card:hover { transform: translateY(-10px); background: var(--white); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
         .service-icon { width: 50px; height: 50px; margin-bottom: 25px; color: var(--gold); }
         .service-card h3 { color: var(--navy); margin-bottom: 15px; font-size: 1.4rem; }
-		
-	.service-card{ padding:40px; background:#f8f9fa; border-radius:8px; border-top:4px solid var(--gold); }
-	.service-card h3{color:var(--navy)}
-	@media(max-width:768px){ .services-grid{ grid-template-columns:1fr; } }
 
+        .service-card { padding:40px; background:#f8f9fa; border-radius:8px; border-top:4px solid var(--gold); }
+        .service-card h3 { color: var(--navy); }
+        @media(max-width:768px) { .services-grid { grid-template-columns:1fr; } }
 
-
-
-	/* WHY PARTNER SECTION */
-	.why-partner { padding: 100px 0; background: var(--light); }
-	.why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
-	.why-card { background: var(--white); padding: 30px; border-left: 4px solid var(--gold); border-radius: 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-	.why-card p { color: var(--gray); font-size: 1rem; }
-	@media (max-width: 768px){
-   	 .why-grid { grid-template-columns: 1fr; } }
-
-
+        /* WHY PARTNER SECTION */
+        .why-partner { padding: 100px 0; background: var(--light); }
+        .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .why-card { background: var(--white); padding: 30px; border-left: 4px solid var(--gold); border-radius: 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .why-card p { color: var(--gray); font-size: 1rem; }
+        @media (max-width: 768px) { .why-grid { grid-template-columns: 1fr; } }
 
         /* INDUSTRIES SECTION */
         .industries { padding: 100px 0; background: var(--navy); color: var(--white); }
@@ -169,23 +162,108 @@
         .industry-card:hover { background: rgba(255,255,255,0.08); border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
         .industry-icon { height: 60px; margin-bottom: 20px; color: var(--gold); display: flex; justify-content: center; align-items: center; }
         .industry-icon svg { width: 45px; height: 45px; stroke-width: 1.5; stroke: currentColor; fill: none; stroke-linecap: round; stroke-linejoin: round; animation: floatIcon 3s ease-in-out infinite; }
-        
-        @keyframes floatIcon {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
+        @keyframes floatIcon { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         .industry-card h3 { font-size: 1.1rem; font-weight: 600; color: var(--white); }
 
-        /* TEAM SECTION */
+        /* ═══════════════════════════════════════
+           TEAM SECTION — UPDATED
+        ═══════════════════════════════════════ */
         .team { padding: 100px 0; background: var(--light); }
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .team-card { background: var(--white); border-radius: 8px; overflow: hidden; text-align: center; padding: 40px 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .team-img-wrapper { width: 120px; height: 120px; margin: 0 auto 20px; position: relative; }
-        .team-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); background: #eee; }
+
+        /* 2 columns always, 1 column on mobile */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        @media (max-width: 768px) {
+            .team-grid { grid-template-columns: 1fr; }
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 40px 35px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .team-img-wrapper { width: 120px; height: 120px; margin: 0 auto 20px; }
+        .team-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+            background: #eee;
+        }
+
         .team-card h4 { color: var(--navy); font-size: 1.2rem; margin-bottom: 5px; }
-        .team-card .role { color: var(--gold); font-weight: 700; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
-        .team-card .bio { font-size: 0.9rem; color: var(--gray); margin-bottom: 20px; min-height: 60px; }
-        .team-card .email { font-size: 0.85rem; font-weight: 600; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--gold); }
+        .team-card .role {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Bio truncation — 5 lines */
+        .bio-wrapper {
+            width: 100%;
+            margin-bottom: 16px;
+        }
+        .bio {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.65;
+            text-align: center;
+
+            /* clamp to 5 lines when collapsed */
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            max-height: calc(1.65em * 5);
+        }
+        .bio.expanded {
+            display: block;
+            max-height: none;
+            -webkit-line-clamp: unset;
+            overflow: visible;
+        }
+
+        /* Read More / Read Less button */
+        .read-more-btn {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--navy);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px 0;
+            border-bottom: 1px solid var(--gold);
+            transition: var(--transition);
+            letter-spacing: 0.3px;
+        }
+        .read-more-btn:hover { color: var(--gold); }
+
+        .team-card .email {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy);
+            text-decoration: none;
+            border-bottom: 1px solid var(--gold);
+            margin-top: auto;
+        }
+        .team-card .email:hover { color: var(--gold); }
 
         /* CONTACT ZONE */
         .contact-zone { padding: 100px 0; background: var(--white); }
@@ -195,7 +273,6 @@
         .detail-group { margin-bottom: 30px; }
         .detail-group label { display: block; color: var(--gold); font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 5px; }
         .detail-group p { font-size: 1.1rem; font-weight: 600; color: var(--navy); }
-        
         .map-wrapper { flex: 1.2; min-width: 350px; height: 450px; border-radius: 12px; overflow: hidden; border: 1px solid #ddd; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .map-wrapper iframe { width: 100%; height: 100%; border: 0; display: block; }
 
@@ -207,12 +284,10 @@
         .footer-links li { margin-bottom: 12px; }
         .footer-links a { color: #aaa; text-decoration: none; transition: var(--transition); font-size: 0.9rem; }
         .footer-links a:hover { color: var(--gold); padding-left: 5px; }
-        
         .social-flex { display: flex; gap: 15px; margin-top: 15px; }
         .social-icon { width: 35px; height: 35px; background: rgba(255,255,255,0.05); border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: var(--transition); color: var(--white); }
         .social-icon:hover { background: var(--gold); color: var(--navy); transform: translateY(-3px); }
         .social-icon svg { width: 18px; height: 18px; fill: currentColor; }
-
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; text-align: center; color: #777; font-size: 0.85rem; }
 
         @media (max-width: 1024px) {
@@ -249,8 +324,6 @@
             .stat-number { font-size: 2.2rem; min-width: auto; }
             .hero h1 { font-size: 2.2rem; }
         }
-
-	
     </style>
 </head>
 <body>
@@ -274,7 +347,7 @@
                     </div>
                     <ul class="nav-links" id="nav-menu">
                         <li><a href="#about">About</a></li>
-			 <li><a href="#why-us">Why Us</a></li>
+                        <li><a href="#why-us">Why Us</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#team">Our Team</a></li>
                         <li><a href="#contact">Contact</a></li>
@@ -332,7 +405,7 @@
             </div>
             <div class="about-content">
                 <h2>Precision Meets Partnership.</h2>
-                <p>Founded on the principle that compliance shouldn't be a hurdle to growth, <strong> Nova Compliance & Accounting Services (NCAS)</strong> has become a trusted pillar for the Australian SME community.</p>
+                <p>Founded on the principle that compliance shouldn't be a hurdle to growth, <strong>Nova Compliance & Accounting Services (NCAS)</strong> has become a trusted pillar for the Australian SME community.</p>
                 <p>We don't just "do the books." We provide the strategic financial infrastructure that allows visionary founders to scale with confidence, knowing their regulatory foundations are unbreakable.</p>
                 <div class="highlight-text">
                     "Our mission is to replace financial uncertainty with absolute clarity, transforming accounting from a cost center into a competitive advantage."
@@ -342,26 +415,20 @@
         </div>
     </section>
 
-
-
-
-<section id="why-us" class="why-partner"> <!-- ✅ ID ADDED -->
-    <div class="container">
-        <div class="section-header">
-            <h2>Why Partner with Us?</h2>
-            <h4>Built for accounting firms who want efficiency, compliance, and growth.</h4>
-            <p>
-                We handle administrative, compliance, and accounting tasks efficiently, reducing the risk of errors and penalties.
-                Your firm can focus on client advisory and business growth, while we manage the operational details seamlessly.
-                Reliable, accurate, and timely support tailored specifically for accounting firms and professional practices.
-                We would be happy to discuss how our services can complement your firm’s operations and make entity setups, compliance, and accounting seamless for your clients.
-            </p>
+    <section id="why-us" class="why-partner">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Partner with Us?</h2>
+                <h4>Built for accounting firms who want efficiency, compliance, and growth.</h4>
+                <p>
+                    We handle administrative, compliance, and accounting tasks efficiently, reducing the risk of errors and penalties.
+                    Your firm can focus on client advisory and business growth, while we manage the operational details seamlessly.
+                    Reliable, accurate, and timely support tailored specifically for accounting firms and professional practices.
+                    We would be happy to discuss how our services can complement your firm's operations and make entity setups, compliance, and accounting seamless for your clients.
+                </p>
+            </div>
         </div>
-    </div>
-</section>
-
-
-
+    </section>
 
     <section id="services" class="services">
         <div class="container">
@@ -370,7 +437,6 @@
                 <p>Proactive financial management tailored for the modern Australian business.</p>
             </div>
             <div class="services-grid">
-                
                 <div class="service-card">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -378,10 +444,8 @@
                         </svg>
                     </div>
                     <h3>Company, SMSF, and Trust Setups</h3>
-                    <p>ASIC company registration and assistance with ABN, TFN, and GST registration. SMSF registration with the ATO and support with trustee declarations. Family Trusts, Unit Trusts, and Fixed Unit Trusts setup with ATO registration.Assistance with maintaining trustee, shareholder, and beneficiary records.</p>
+                    <p>ASIC company registration and assistance with ABN, TFN, and GST registration. SMSF registration with the ATO and support with trustee declarations. Family Trusts, Unit Trusts, and Fixed Unit Trusts setup with ATO registration. Assistance with maintaining trustee, shareholder, and beneficiary records.</p>
                 </div>
-
-                
                 <div class="service-card">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -392,8 +456,6 @@
                     <h3>ASIC Compliance Support</h3>
                     <p>Lodging statutory forms such as Form 484 (Change to Company Details), 581 (Company reinstatement), 205A (Change of Company Name), 6010 (Voluntary deregistration of a company), and others. Preparing and maintaining minutes, resolutions, and company registers for any changes. Sending timely reminders to clients for payment of annual review fees to avoid penalties.</p>
                 </div>
-		
-               
                 <div class="service-card">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -404,10 +466,6 @@
                     <h3>Bookkeeping and Accounting Support</h3>
                     <p>Day-to-day bookkeeping including bank reconciliation, accounts payable and receivable, and payroll processing. Preparation of management reports and workpapers for year-end accounting. Assistance with BAS preparation and GST reporting. Support for maintaining clean, up-to-date financial records.</p>
                 </div>
-
-              
-
-        
                 <div class="service-card">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -427,33 +485,22 @@
                     <h3>Payroll Management Services</h3>
                     <p>End-to-end payroll processing tailored to Australian compliance standards, including Single Touch Payroll (STP), superannuation contributions, and award interpretation. We ensure accurate salary calculations, timely payslip generation, and compliance with Fair Work regulations. Our service minimizes payroll risks, maintains employee satisfaction, and keeps your business fully compliant with ATO requirements.</p>
                 </div>
-
-            
             </div>
         </div>
     </section>
 
-
-
-<section class="why-partner">
-    <div class="container">
-        <div class="section-header">
-            <h2>Why Partner with Us?</h2>
-            <h4>Built for accounting firms who want efficiency, compliance, and growth.</h4>
-                  <p>We handle administrative, compliance, and accounting tasks efficiently, reducing the risk of errors and penalties.
-                 Your firm can focus on client advisory and business growth, while we manage the operational details seamlessly.
-                   Reliable, accurate, and timely support tailored specifically for accounting firms and professional practices.
-                 We would be happy to discuss how our services can complement your firm’s operations and make entity setups, compliance, and accounting seamless for your clients.
+    <section class="why-partner">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Partner with Us?</h2>
+                <h4>Built for accounting firms who want efficiency, compliance, and growth.</h4>
+                <p>We handle administrative, compliance, and accounting tasks efficiently, reducing the risk of errors and penalties.
+                Your firm can focus on client advisory and business growth, while we manage the operational details seamlessly.
+                Reliable, accurate, and timely support tailored specifically for accounting firms and professional practices.
+                We would be happy to discuss how our services can complement your firm's operations and make entity setups, compliance, and accounting seamless for your clients.</p>
             </div>
-    </div>
-</section>
-
-
-
-
-
-
-
+        </div>
+    </section>
 
     <section id="industries" class="industries">
         <div class="container">
@@ -502,6 +549,9 @@
         </div>
     </section>
 
+    <!-- ═══════════════════════════════════════
+         TEAM SECTION — UPDATED
+    ═══════════════════════════════════════ -->
     <section id="team" class="team">
         <div class="container">
             <div class="section-header">
@@ -509,42 +559,63 @@
                 <p>Expert advisors committed to your business success.</p>
             </div>
             <div class="team-grid">
+
+                <!-- Card 1: Charu Sharma -->
                 <div class="team-card">
                     <div class="team-img-wrapper">
-                        <img src="https://ui-avatars.com/api/?name=Lachlan+Vance&background=0B2545&color=D4AF37&size=256" alt="Lachlan Vance" class="team-img">
+                        <img src="https://ui-avatars.com/api/?name=Charu+Sharma&background=0B2545&color=D4AF37&size=256" alt="Charu Sharma" class="team-img">
                     </div>
-                    <h4>Lachlan Vance, CPA</h4>
-                    <p class="role">Managing Director</p>
-                    <p class="bio">18+ years in Australian tax law. Specialized in high-growth startup structures and corporate strategy.</p>
-                    <a href="mailto:l.vance@ncas.com.au" class="email">l.vance@ncas.com.au</a>
+                    <h4>Charu Sharma</h4>
+                    <p class="role">Founder & Company Secretary</p>
+                    <div class="bio-wrapper">
+                        <p class="bio" id="bio-1">Company Secretarial Services, ASIC Compliance, Bookkeeping, Payroll, and Business Structuring. Charu is the founder of NCAS and brings over 15 years of professional experience as a Company Secretary, with strong expertise in corporate law, regulatory compliance, and business support services. She has worked extensively with both Indian and Australian clients, assisting with company incorporations, ASIC compliance, maintenance of statutory records, and ongoing secretarial requirements. In addition, she provides bookkeeping and payroll support, helping businesses maintain accurate financial records and meet their compliance obligations efficiently. Charu is known for her practical approach and attention to detail. She works closely with clients across a range of industries to simplify compliance processes, ensure timely filings, and support smooth business operations. Her combined experience in company law and financial processes enables her to not only manage compliance requirements but also provide structured, reliable support for growing businesses.</p>
+                        <button class="read-more-btn" onclick="toggleBio('bio-1', this)">Read More</button>
+                    </div>
+                    <a href="mailto:charu.sharma@ncas.com.au" class="email">charu.sharma@ncas.com.au</a>
                 </div>
+
+                <!-- Card 2: Atul Sharma -->
                 <div class="team-card">
                     <div class="team-img-wrapper">
-                        <img src="https://ui-avatars.com/api/?name=Sarah+Chen&background=0B2545&color=D4AF37&size=256" alt="Sarah Chen" class="team-img">
+                        <img src="https://ui-avatars.com/api/?name=Atul+Sharma&background=0B2545&color=D4AF37&size=256" alt="Atul Sharma" class="team-img">
                     </div>
-                    <h4>Sarah Chen</h4>
-                    <p class="role">Compliance Lead</p>
-                    <p class="bio">ASIC and corporate governance expert. Ensuring zero-error regulatory lodgements for our national portfolio.</p>
-                    <a href="mailto:s.chen@ncas.com.au" class="email">s.chen@ncas.com.au</a>
+                    <h4>Atul Sharma</h4>
+                    <p class="role">Senior Finance & Accounts Professional</p>
+                    <div class="bio-wrapper">
+                        <p class="bio" id="bio-2">Financial Strategy, Internal Audit, Budgeting & Forecasting, MIS Reporting, and Compliance. Atul is a Chartered Accountant with over 13 years of experience in finance and accounting, specializing in financial planning, internal audits, and business strategy. He has worked across diverse industries including pharmaceuticals, manufacturing, and construction, delivering strong financial control and operational efficiency. He brings deep expertise in budgeting, forecasting, MIS reporting, cost optimization, and regulatory compliance. Atul has a proven track record in strengthening internal controls, managing audits, and ensuring accurate financial reporting aligned with business objectives. Currently working in a senior leadership role, he oversees end-to-end finance operations including accounts finalization, taxation, treasury, and audit functions. He is also experienced in SAP and ERP systems, enabling streamlined processes and data-driven decision-making. Atul is known for his analytical approach, attention to detail, and ability to identify risks and implement effective financial strategies.</p>
+                        <button class="read-more-btn" onclick="toggleBio('bio-2', this)">Read More</button>
+                    </div>
+                    <a href="mailto:atul.sharma@ncas.com.au" class="email">atul.sharma@ncas.com.au</a>
                 </div>
+
+                <!-- Card 3: Marcus Thompson -->
                 <div class="team-card">
                     <div class="team-img-wrapper">
                         <img src="https://ui-avatars.com/api/?name=Marcus+Thompson&background=0B2545&color=D4AF37&size=256" alt="Marcus Thompson" class="team-img">
                     </div>
                     <h4>Marcus Thompson</h4>
                     <p class="role">Head of Payroll</p>
-                    <p class="bio">Specialist in STP Phase 2 transitions and Fair Work award interpretation and risk mitigation.</p>
+                    <div class="bio-wrapper">
+                        <p class="bio" id="bio-3">Specialist in STP Phase 2 transitions and Fair Work award interpretation and risk mitigation.</p>
+                        <button class="read-more-btn" style="display:none;" onclick="toggleBio('bio-3', this)">Read More</button>
+                    </div>
                     <a href="mailto:m.thompson@ncas.com.au" class="email">m.thompson@ncas.com.au</a>
                 </div>
+
+                <!-- Card 4: Elena Rodriguez -->
                 <div class="team-card">
                     <div class="team-img-wrapper">
                         <img src="https://ui-avatars.com/api/?name=Elena+Rodriguez&background=0B2545&color=D4AF37&size=256" alt="Elena Rodriguez" class="team-img">
                     </div>
                     <h4>Elena Rodriguez</h4>
                     <p class="role">Senior Tax Advisor</p>
-                    <p class="bio">Focusing on R&D Tax Incentives and international tax obligations for Australian companies expanding offshore.</p>
+                    <div class="bio-wrapper">
+                        <p class="bio" id="bio-4">Focusing on R&D Tax Incentives and international tax obligations for Australian companies expanding offshore.</p>
+                        <button class="read-more-btn" style="display:none;" onclick="toggleBio('bio-4', this)">Read More</button>
+                    </div>
                     <a href="mailto:e.rodriguez@ncas.com.au" class="email">e.rodriguez@ncas.com.au</a>
                 </div>
+
             </div>
         </div>
     </section>
@@ -565,11 +636,10 @@
                     </div>
                     <div class="detail-group">
                         <label>Business Identity</label>
-                        <p>Nova Compliance & Accounting Services </p>
+                        <p>Nova Compliance & Accounting Services</p>
                     </div>
                     <a href="mailto:inquiries@ncas.com.au" class="btn btn-gold">Send an Inquiry</a>
                 </div>
-                
                 <div class="map-wrapper">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.7915354964177!2d151.2065842765373!3d-33.843516517726524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae657df66917%3A0x643666f7f2b93f2f!2s100%20Mount%20St%2C%20North%20Sydney%20NSW%202060!5e0!3m2!1sen!2sau!4v1700000000000!5m2!1sen!2sau" 
@@ -596,7 +666,7 @@
                     <ul class="footer-links">
                         <li><a href="#">Home</a></li>
                         <li><a href="#about">About Us</a></li>
-			 <li><a href="#why-us">Why Us</a></li>
+                        <li><a href="#why-us">Why Us</a></li>
                         <li><a href="#services">Our Services</a></li>
                         <li><a href="#team">Leadership Team</a></li>
                         <li><a href="#">Privacy Policy</a></li>
@@ -609,8 +679,6 @@
                         <li><a href="#services">ASIC Compliance Support</a></li>
                         <li><a href="#services">Bookkeeping and Accounting Support</a></li>
                         <li><a href="#services">Payroll Management Services</a></li>
-
-
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -626,74 +694,86 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                © 2026 Nova Compliance & Accounting Services (NCAS). 
+                © 2026 Nova Compliance & Accounting Services (NCAS).
             </div>
         </div>
     </footer>
 
     <script>
-       // PRELOADER WITH 1 SECOND DELAY
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-            document.body.classList.add('loaded');
-        }, 1000); // 1000ms = 1 second
-    });
+        /* ── Preloader ── */
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                document.body.classList.add('loaded');
+            }, 1000);
+        });
 
-    // Mobile menu
-    document.getElementById('mobile-toggle').addEventListener('click', function() {
-        this.classList.toggle('active');
-        document.getElementById('nav-menu').classList.toggle('active');
-    });
-		
-		
+        /* ── Mobile menu ── */
+        document.getElementById('mobile-toggle').addEventListener('click', function () {
+            this.classList.toggle('active');
+            document.getElementById('nav-menu').classList.toggle('active');
+        });
 
-		
-		
-		
-		
-
-    
-
-    // ✅ COUNTER ANIMATION (START FROM 1)
-    const counters = document.querySelectorAll('.stat-number');
-
-    const startCounter = (counter) => {
-        const target = +counter.getAttribute('data-target');
-        let count = 1;
-
-        const speed = 30; // lower = faster
-
-        const updateCount = () => {
-            const increment = Math.ceil(target / 100);
-
-            if (count < target) {
-                count += increment;
-                if (count > target) count = target;
-                counter.innerText = count;
-                setTimeout(updateCount, speed);
-            } else {
-                counter.innerText = target;
-            }
+        /* ── Counter animation ── */
+        const counters = document.querySelectorAll('.stat-number');
+        const startCounter = (counter) => {
+            const target = +counter.getAttribute('data-target');
+            let count = 1;
+            const speed = 30;
+            const updateCount = () => {
+                const increment = Math.ceil(target / 100);
+                if (count < target) {
+                    count += increment;
+                    if (count > target) count = target;
+                    counter.innerText = count;
+                    setTimeout(updateCount, speed);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            counter.innerText = 1;
+            updateCount();
         };
+        let triggered = false;
+        window.addEventListener('scroll', () => {
+            const section = document.querySelector('.trust-ticker-container');
+            const sectionTop = section.offsetTop - window.innerHeight + 100;
+            if (!triggered && window.scrollY > sectionTop) {
+                counters.forEach(counter => startCounter(counter));
+                triggered = true;
+            }
+        });
 
-        counter.innerText = 1; // start from 1
-        updateCount();
-    };
-
-    // Trigger on scroll (smooth UX)
-    let triggered = false;
-
-    window.addEventListener('scroll', () => {
-        const section = document.querySelector('.trust-ticker-container');
-        const sectionTop = section.offsetTop - window.innerHeight + 100;
-
-        if (!triggered && window.scrollY > sectionTop) {
-            counters.forEach(counter => startCounter(counter));
-            triggered = true;
+        /* ── Read More / Read Less toggle ── */
+        function toggleBio(bioId, btn) {
+            const bio = document.getElementById(bioId);
+            const isExpanded = bio.classList.contains('expanded');
+            if (isExpanded) {
+                bio.classList.remove('expanded');
+                btn.textContent = 'Read More';
+            } else {
+                bio.classList.add('expanded');
+                btn.textContent = 'Read Less';
+            }
         }
-    });
-</script>
-		
+
+        /* ── Hide Read More button if bio fits within 5 lines ── */
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.bio').forEach(function (bio) {
+                const btn = bio.closest('.bio-wrapper').querySelector('.read-more-btn');
+                if (!btn) return;
+                /* Check if content overflows the 5-line clamp */
+                const lineHeight = parseFloat(getComputedStyle(bio).lineHeight);
+                const fiveLines = lineHeight * 5;
+                if (bio.scrollHeight <= fiveLines + 2) {
+                    btn.style.display = 'none';
+                    bio.style.webkitLineClamp = 'unset';
+                    bio.style.overflow = 'visible';
+                    bio.style.maxHeight = 'none';
+                } else {
+                    btn.style.display = 'inline-block';
+                }
+            });
+        });
     </script>
 </body>
 </html>
