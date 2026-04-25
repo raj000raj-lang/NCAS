@@ -165,12 +165,8 @@
         @keyframes floatIcon { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         .industry-card h3 { font-size: 1.1rem; font-weight: 600; color: var(--white); }
 
-        /* ═══════════════════════════════════════
-           TEAM SECTION — UPDATED
-        ═══════════════════════════════════════ */
+        /* TEAM SECTION */
         .team { padding: 100px 0; background: var(--light); }
-
-        /* 2 columns always, 1 column on mobile */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -179,7 +175,6 @@
         @media (max-width: 768px) {
             .team-grid { grid-template-columns: 1fr; }
         }
-
         .team-card {
             background: var(--white);
             border-radius: 8px;
@@ -191,7 +186,6 @@
             align-items: center;
             text-align: center;
         }
-
         .team-img-wrapper { width: 120px; height: 120px; margin: 0 auto 20px; }
         .team-img {
             width: 100%;
@@ -201,7 +195,6 @@
             border: 3px solid var(--gold);
             background: #eee;
         }
-
         .team-card h4 { color: var(--navy); font-size: 1.2rem; margin-bottom: 5px; }
         .team-card .role {
             color: var(--gold);
@@ -211,19 +204,12 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-
-        /* Bio truncation — 5 lines */
-        .bio-wrapper {
-            width: 100%;
-            margin-bottom: 16px;
-        }
+        .bio-wrapper { width: 100%; margin-bottom: 16px; }
         .bio {
             font-size: 0.9rem;
             color: var(--gray);
             line-height: 1.65;
             text-align: center;
-
-            /* clamp to 5 lines when collapsed */
             display: -webkit-box;
             -webkit-line-clamp: 5;
             -webkit-box-orient: vertical;
@@ -237,8 +223,6 @@
             -webkit-line-clamp: unset;
             overflow: visible;
         }
-
-        /* Read More / Read Less button */
         .read-more-btn {
             display: inline-block;
             margin-top: 8px;
@@ -254,7 +238,6 @@
             letter-spacing: 0.3px;
         }
         .read-more-btn:hover { color: var(--gold); }
-
         .team-card .email {
             font-size: 0.85rem;
             font-weight: 600;
@@ -324,9 +307,58 @@
             .stat-number { font-size: 2.2rem; min-width: auto; }
             .hero h1 { font-size: 2.2rem; }
         }
+
+        /* ═══════════════════════════════════
+           SCROLL TO TOP BUTTON — NEW ONLY
+        ═══════════════════════════════════ */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 999;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--navy);
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(11, 37, 69, 0.25);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(16px);
+            transition: opacity 0.35s ease, visibility 0.35s ease, transform 0.35s ease, background 0.25s ease;
+        }
+        #scrollTopBtn.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        #scrollTopBtn:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+        #scrollTopBtn svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: color 0.25s ease;
+        }
     </style>
 </head>
 <body>
+
+    <!-- ── SCROLL TO TOP BUTTON (new) ── -->
+    <button id="scrollTopBtn" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
 
     <div id="preloader">
         <div class="loader-content">
@@ -549,9 +581,6 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         TEAM SECTION — UPDATED
-    ═══════════════════════════════════════ -->
     <section id="team" class="team">
         <div class="container">
             <div class="section-header">
@@ -560,7 +589,6 @@
             </div>
             <div class="team-grid">
 
-                <!-- Card 1: Charu Sharma -->
                 <div class="team-card">
                     <div class="team-img-wrapper">
                         <img src="https://ui-avatars.com/api/?name=Charu+Sharma&background=0B2545&color=D4AF37&size=256" alt="Charu Sharma" class="team-img">
@@ -574,7 +602,6 @@
                     <a href="mailto:charu.sharma@ncas.com.au" class="email">charu.sharma@ncas.com.au</a>
                 </div>
 
-                <!-- Card 2: Atul Sharma -->
                 <div class="team-card">
                     <div class="team-img-wrapper">
                         <img src="https://ui-avatars.com/api/?name=Atul+Sharma&background=0B2545&color=D4AF37&size=256" alt="Atul Sharma" class="team-img">
@@ -588,7 +615,6 @@
                     <a href="mailto:atul.sharma@ncas.com.au" class="email">atul.sharma@ncas.com.au</a>
                 </div>
 
-                <!-- Card 3: Marcus Thompson -->
                 <div class="team-card">
                     <div class="team-img-wrapper">
                         <img src="https://ui-avatars.com/api/?name=Marcus+Thompson&background=0B2545&color=D4AF37&size=256" alt="Marcus Thompson" class="team-img">
@@ -602,7 +628,6 @@
                     <a href="mailto:m.thompson@ncas.com.au" class="email">m.thompson@ncas.com.au</a>
                 </div>
 
-                <!-- Card 4: Elena Rodriguez -->
                 <div class="team-card">
                     <div class="team-img-wrapper">
                         <img src="https://ui-avatars.com/api/?name=Elena+Rodriguez&background=0B2545&color=D4AF37&size=256" alt="Elena Rodriguez" class="team-img">
@@ -761,7 +786,6 @@
             document.querySelectorAll('.bio').forEach(function (bio) {
                 const btn = bio.closest('.bio-wrapper').querySelector('.read-more-btn');
                 if (!btn) return;
-                /* Check if content overflows the 5-line clamp */
                 const lineHeight = parseFloat(getComputedStyle(bio).lineHeight);
                 const fiveLines = lineHeight * 5;
                 if (bio.scrollHeight <= fiveLines + 2) {
@@ -774,6 +798,22 @@
                 }
             });
         });
+
+        /* ── Scroll to Top Button — show from "Why Partner with Us?" onward ── */
+        (function () {
+            const btn = document.getElementById('scrollTopBtn');
+            const trigger = document.getElementById('why-us');
+
+            window.addEventListener('scroll', function () {
+                if (!trigger) return;
+                /* Show when the top of #why-us reaches the top of the viewport */
+                if (window.scrollY >= trigger.offsetTop - 80) {
+                    btn.classList.add('visible');
+                } else {
+                    btn.classList.remove('visible');
+                }
+            }, { passive: true });
+        })();
     </script>
 </body>
 </html>
